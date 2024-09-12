@@ -44,12 +44,11 @@ def add_user():
     user_id = request.form.get('id')
     return jsonify({'payload': {'email': email, 'name': name, 'id': user_id}})
 
-@app.route('/api/v1/user/create', methods=['POST'])
-def create_user():
-    data = request.get_json()
-    email = data.get('email')
-    name = data.get('name')
-    user_id = data.get('id')
+@app.route('/api/v1/user/add', methods=['PUT'])
+def add_user():
+    email = request.form.get('email')
+    name = request.form.get('name')
+    user_id = request.form.get('id')
     return jsonify({'payload': {'email': email, 'name': name, 'id': user_id}})
 
 if __name__ == "__main__":
